@@ -14,7 +14,8 @@ python separation.py
 
 import numpy as np
 
-d = np.load("results.npz")
+import sys
+d = np.load(sys.argv[1] if len(sys.argv) > 1 else "results.npz")
 safe, harmful, jailbreak = d["safe"], d["harmful"], d["jailbreak"]
 print(f"loaded: {len(safe)} safe, {len(harmful)} harmful, {len(jailbreak)} jailbreak\n")
 
